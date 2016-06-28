@@ -5,10 +5,16 @@
 
 import UIKit
 
+
+
 class BoardViewController: UIViewController {
 
-    @IBOutlet weak var newGameButton: UIButton!
-    // Create additional IBOutlets here.
+    
+    @IBAction func buttonPush(sender: AnyObject) {
+        let numTag: Int = sender.tag
+        print("You pushed button number \(numTag)")
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +27,11 @@ class BoardViewController: UIViewController {
     }
     
     // Create additional IBActions here.
+    
+    
+    @IBAction func logOutButton(sender: AnyObject) {
+        print("Log Out")
+    }
 
 }
 
