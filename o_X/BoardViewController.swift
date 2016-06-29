@@ -8,12 +8,12 @@ import UIKit
 
 
 class BoardViewController: UIViewController {
-
+    
+    var gameObject = OXGame()
     
     @IBAction func buttonPush(sender: AnyObject) {
         let numTag: Int = sender.tag
         print("You pushed button number \(numTag)")
-        
     }
     
     override func viewDidLoad() {
