@@ -242,14 +242,14 @@
                                         <exclude reference="ACg-xE-0Rd"/>
                                         <exclude reference="D6e-BJ-a55"/>
                                         <exclude reference="HIf-dN-gpI"/>
+                                        <exclude reference="Lpc-WR-PgM"/>
+                                        <exclude reference="WPT-wt-XTg"/>
+                                        <exclude reference="uEB-SK-MDp"/>
                                         <exclude reference="9YO-Tf-GAo"/>
                                         <exclude reference="FYV-hm-lpk"/>
                                         <exclude reference="H7q-vB-ybn"/>
                                         <exclude reference="da6-y9-VWQ"/>
                                         <exclude reference="pRZ-AI-s4p"/>
-                                        <exclude reference="Lpc-WR-PgM"/>
-                                        <exclude reference="WPT-wt-XTg"/>
-                                        <exclude reference="uEB-SK-MDp"/>
                                         <exclude reference="2Si-ld-Yo7"/>
                                         <exclude reference="FXa-7R-1Uc"/>
                                         <exclude reference="cFZ-VB-QQ7"/>
@@ -317,6 +317,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="boardView" destination="72J-nW-UXw" id="i69-OK-N0z"/>
+                        <outlet property="newGameOutlet" destination="FOI-9J-TDI" id="Ma3-J4-1h8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
