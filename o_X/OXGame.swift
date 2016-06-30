@@ -8,29 +8,29 @@
 
 import Foundation
 
-class OXGame{
+enum CellType: String {
+    case O = "O"
+    case X = "X"
+    case Empty = ""
     
-    enum CellType: String {
-        case O = "O"
-        case X = "X"
-        case Empty = ""
-        
-        var opposite: CellType {
-            if self == .X {
-                return .O
-            } else if self == .O {
-                return .X
-            } else {
-                return .Empty
-            }
+    var opposite: CellType {
+        if self == .X {
+            return .O
+        } else if self == .O {
+            return .X
+        } else {
+            return .Empty
         }
     }
-    
-    enum OXGameState {
-        case InProgress
-        case Tie
-        case Won
-    }
+}
+
+enum OXGameState {
+    case InProgress
+    case Tie
+    case Won
+}
+
+class OXGame{
     
     var startingTurn: CellType = CellType.X
     
@@ -81,9 +81,10 @@ class OXGame{
         else {
             return OXGameState.InProgress
         }
+    }
     
-        func reset() -> CellType {
-            board = [CellType](count: 9, repeatedValue: CellType.Empty)
-            turnCounter = 0
+    func reset() -> Void {
+        board = [CellType](count: 9, repeatedValue: CellType.Empty)
+        turnCounter = 0
         }
-}
+    }

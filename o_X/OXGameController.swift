@@ -10,11 +10,25 @@ import Foundation
 
 class OXGameController {
     
-    static var sharedInstance = OXGameController()
+    static let sharedInstance = OXGameController()
     
-    private var currentGame
+    private init() {}
     
+    private var currentGame = OXGame()
     
+    func getCurrentGame() -> OXGame {
+        return currentGame
+    }
     
+    func restartGame() {
+        currentGame.reset()
+    }
+    
+    func playMove(cellNum: Int) {
+        currentGame.playMove(cellNum)
+    }
 }
+    
+    
+
 
