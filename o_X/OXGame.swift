@@ -12,16 +12,7 @@ enum CellType: String {
     case O = "O"
     case X = "X"
     case Empty = ""
-    
-    var opposite: CellType {
-        if self == .X {
-            return .O
-        } else if self == .O {
-            return .X
-        } else {
-            return .Empty
-        }
-    }
+
 }
 
 enum OXGameState {
@@ -46,16 +37,17 @@ class OXGame{
     
     func whoseTurn() -> CellType {
         if (turnCount() % 2) == 0 {
-            return startType
+            turnCounter += 1
+            return CellType.X
         }
         else {
-            return startType.opposite
+            turnCounter += 1
+            return CellType.O
         }
     }
     
     func playMove(cellNum: Int) -> CellType {
         board[cellNum] = self.whoseTurn()
-        turnCounter += 1
         return board[cellNum]
         
     }
