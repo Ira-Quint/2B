@@ -6,31 +6,49 @@
 //  Copyright © 2016 iX. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
-/*
+class LoginViewController: UIViewController{
 
-let onCompletion = { (user:User?,message: String?) in
+    @IBOutlet weak var email_Field: UITextField!
     
-    if let newUser = user {
-        UserController.sharedInstance.users.append(newUser)
-        
-        if message != nil {
+    @IBOutlet weak var password_Field: UITextField!
+
+    @IBAction func LogonPushed(sender: AnyObject) {
+        UserController.sharedInstance.login(email:email_Field.text!, password: password_Field.text!) { (user: User?, test: String?) -> Void in
             
-            let alert = UIAlertController (title: "Error: Please try again", message: message, preferredStyle: .Alert)
-            let dismissAction = UIAlertAction(title: "Dismiss", style: .Default, handler: { (action) in
+            if user == nil {
                 
-            })
-            
-            alert.addAction(dismissAction)
-            self.presentViewController(alert, animated: true, completion: nil)
-            
+                let alert = UIAlertController (title: "Error: that user/password combination does not exist", message: "", preferredStyle: .Alert)
+                let dismissAction = UIAlertAction(title: "Dismiss", style: .Default, handler: { (action) in
+                    
+                })
+                
+                alert.addAction(dismissAction)
+                self.presentViewController(alert, animated: true, completion: nil)
+                
+            }
+                
+            else {
+                
+                let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+                let b = mainStoryBoard.instantiateInitialViewController()
+                let application = UIApplication.sharedApplication()
+                let window = application.keyWindow
+                window?.rootViewController = b
+                
+            }
         }
     }
-}
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+            
+    }
+        
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
 
-UserController.sharedInstance.register(email:EmailField.text!, password: PasswordField.text!, onCompletion: onCompletion)
-
 }
- 
- */

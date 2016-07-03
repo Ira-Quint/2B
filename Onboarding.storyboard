@@ -34,6 +34,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O0m-1m-yPA">
+                                <rect key="frame" x="262" y="175" width="75" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="8YT-VN-Iqd"/>
+                                    <constraint firstAttribute="height" constant="75" id="jcG-b5-R2N"/>
+                                </constraints>
+                                <state key="normal" title="Register"/>
+                                <connections>
+                                    <segue destination="a9j-N8-SgJ" kind="show" id="wBq-x2-pEd"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vst-nX-ZHC">
                                 <rect key="frame" x="262" y="300" width="75" height="75"/>
                                 <constraints>
@@ -49,17 +60,6 @@
                                 </variation>
                                 <connections>
                                     <segue destination="zhn-eI-Tvo" kind="show" id="VCp-nY-KrN"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O0m-1m-yPA">
-                                <rect key="frame" x="262" y="175" width="75" height="75"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="8YT-VN-Iqd"/>
-                                    <constraint firstAttribute="height" constant="75" id="jcG-b5-R2N"/>
-                                </constraints>
-                                <state key="normal" title="Register"/>
-                                <connections>
-                                    <segue destination="a9j-N8-SgJ" kind="show" id="wBq-x2-pEd"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -144,7 +144,7 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="emailField" destination="8qr-1e-QHl" id="a1q-p6-hzf"/>
+                        <outlet property="emailField" destination="8qr-1e-QHl" id="y1H-VY-GPz"/>
                         <outlet property="passwordField" destination="J0Z-lu-iql" id="AMX-ZY-fP4"/>
                     </connections>
                 </viewController>
@@ -155,7 +155,7 @@
         <!--Logon-->
         <scene sceneID="j8G-r7-gt2">
             <objects>
-                <viewController id="zhn-eI-Tvo" userLabel="Logon" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController id="zhn-eI-Tvo" userLabel="Logon" customClass="LoginViewController" customModule="o_X" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Blx-uA-EjQ"/>
                         <viewControllerLayoutGuide type="bottom" id="aSE-HR-eHZ"/>
@@ -164,15 +164,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SDg-w4-BSp">
-                                <rect key="frame" x="175" y="140" width="250" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="1Zi-N9-cpN"/>
-                                    <constraint firstAttribute="width" constant="250" id="JbY-Zd-RY5"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0xz-MY-t5n">
                                 <rect key="frame" x="175" y="229" width="250" height="30"/>
                                 <constraints>
@@ -189,7 +180,19 @@
                                     <constraint firstAttribute="height" constant="30" id="K5h-Um-MxA"/>
                                 </constraints>
                                 <state key="normal" title="Log On"/>
+                                <connections>
+                                    <action selector="LogonPushed:" destination="zhn-eI-Tvo" eventType="touchUpInside" id="y4B-gk-0u0"/>
+                                </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SDg-w4-BSp">
+                                <rect key="frame" x="175" y="140" width="250" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="1Zi-N9-cpN"/>
+                                    <constraint firstAttribute="width" constant="250" id="JbY-Zd-RY5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -207,6 +210,10 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="email_Field" destination="SDg-w4-BSp" id="yu8-dp-tWH"/>
+                        <outlet property="password_Field" destination="0xz-MY-t5n" id="pmE-p7-cFJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2R1-HE-iKe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -12,7 +12,7 @@ class RegisterViewController: UIViewController {
 
     
     @IBOutlet weak var passwordField: UITextField!
-    
+
     @IBOutlet weak var emailField: UITextField!
     
     @IBAction func registerPushed(sender: AnyObject) {
@@ -21,7 +21,7 @@ class RegisterViewController: UIViewController {
                 
             if user == nil {
                 
-                let alert = UIAlertController (title: "Error: Please try again", message: "", preferredStyle: .Alert)
+                let alert = UIAlertController (title: "Error: enter a password over 6 letters", message: "", preferredStyle: .Alert)
                 let dismissAction = UIAlertAction(title: "Dismiss", style: .Default, handler: { (action) in
                     
                 })

@@ -274,7 +274,7 @@
                                 <rect key="frame" x="307" y="132" width="48" height="30"/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
-                                    <action selector="logOutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hvR-v0-skn"/>
+                                    <action selector="LogoutPushed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EZG-UB-RF7"/>
                                 </connections>
                             </button>
                         </subviews>

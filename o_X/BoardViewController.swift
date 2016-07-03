@@ -18,6 +18,18 @@ class BoardViewController: UIViewController {
         newGameOutlet.hidden = true
     }
     
+    @IBAction func LogoutPushed(sender: AnyObject) {
+        
+        UserController.sharedInstance.currentUser = nil
+        
+        let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        let viewController = storyboard.instantiateInitialViewController()
+        let application = UIApplication.sharedApplication()
+        let window = application.keyWindow
+        window?.rootViewController = viewController
+    
+    }
+    
     @IBAction func buttonPush(sender: UIButton) {
         
         let cellVal = OXGameController.sharedInstance.playMove(sender.tag).rawValue
@@ -69,10 +81,6 @@ class BoardViewController: UIViewController {
     @IBAction func newGameButtonPressed(sender: UIButton) {
         restartGame()
         self.newGameOutlet.hidden = true
-    }
-    
-    @IBAction func logOutButton(sender: AnyObject) {
-        print("Log Out")
     }
 
 }
