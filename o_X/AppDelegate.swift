@@ -13,7 +13,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        return true
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        
+        if let persistedObject1 = defaults.stringForKey("CurrentUserEmail"), persistedObject2 = defaults.stringForKey("CurrentUserPassword") {
+            
+            UserController.sharedInstance.register(email: persistedObject1, password: persistedObject2) { user, text in
+            if user != nil {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let viewController = storyboard.instantiateInitialViewController()
+                let application = UIApplication.sharedApplication()
+                self.window?.rootViewController = viewController
+                }
+                
+            }
+            
+        }
+            
+    return true
+
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -37,7 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
 
 }
 
