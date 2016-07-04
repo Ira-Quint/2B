@@ -27,6 +27,13 @@ class OXGameController {
     func playMove(cellNum: Int) -> CellType {
         return currentGame.playMove(cellNum)
     }
+    
+    func getGames(onCompletion onCompletion: ([OXGame]?, String?) -> Void) {
+        
+        onCompletion([OXGame()], nil)
+        
+    }
+    
 }
     
     

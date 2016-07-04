@@ -77,5 +77,3 @@ class UserController {
 }
 
 
-
-// It’s time to modify the UserController. In the login and register methods, use NSUserDefaults to set two String values, representing the currently logged in user’s email and password. Use reasonable keys, such as “currentUserEmail” and “currentUserPassword”.

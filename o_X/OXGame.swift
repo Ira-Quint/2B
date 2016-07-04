@@ -21,7 +21,7 @@ enum OXGameState {
     case Won
 }
 
-class OXGame{
+class OXGame {
     
     var startingTurn: CellType = CellType.X
     
@@ -30,6 +30,27 @@ class OXGame{
     private var startType = CellType.X
     
     var turnCounter: Int = 0
+    
+    var ID: Int!
+    
+    var host: String!
+    
+    /* init()  {
+        let simulatedBoardStringFromNetwork = "o________" //update this string to different values to test your model serialisation
+        self.board = deserialiseBoard(simulatedBoardStringFromNetwork) //your OXGame board model should get set here
+        if(simulatedBoardStringFromNetwork == serialiseBoard())    {
+            print("start\n------------------------------------")
+            print("congratulations, you successfully deserialised your board and serialized it again correctly. You can send your data model over the internet with this code. 1 step closer to network OX ;)")
+            
+            print("done\n------------------------------------")
+        }   else    {
+            print("start\n------------------------------------")
+            print ("your board deserialisation and serialization was not correct :( carry on coding on those functions")
+            
+            print("done\n------------------------------------")
+        }
+        
+    } */
     
     func turnCount() -> Int {
         return turnCounter
@@ -79,4 +100,57 @@ class OXGame{
         board = [CellType](count: 9, repeatedValue: CellType.Empty)
         turnCounter = 0
         }
+    
+    func deserialiseBoard(boardString:String) -> [CellType] {
+        //for recieving OXGame data
+        var newBoard = [CellType](count: 9, repeatedValue: CellType.Empty)
+        
+        var i: Int = 0
+        
+        for char in boardString.characters {
+            if char == "_" {
+                newBoard[i] = .Empty
+            }
+            
+            else  if char == "o" {
+                newBoard[i] = .O
+            }
+            
+            else {
+                newBoard[i] = .X
+            }
+        i = i + 1
+            
+        }
+    
+    return newBoard
+    
     }
+    
+    func serialiseBoard() -> String {
+        //for sending OXGame data in a request
+        
+        var newString = ""
+        
+        var i: Int = 0
+        
+        for space in board {
+            if space == .Empty {
+                newString = newString + String("_")
+            }
+            if space == .X {
+                newString = newString + String("x")
+            }
+            if space == .O {
+                newString = newString + String("o")
+            }
+            
+        i = i + 1
+            
+        }
+    
+    return newString
+    
+    }
+    
+}

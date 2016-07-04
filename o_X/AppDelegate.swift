@@ -19,11 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let persistedObject1 = defaults.stringForKey("CurrentUserEmail"), persistedObject2 = defaults.stringForKey("CurrentUserPassword") {
             
             UserController.sharedInstance.register(email: persistedObject1, password: persistedObject2) { user, text in
-            if user != nil {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let viewController = storyboard.instantiateInitialViewController()
-                let application = UIApplication.sharedApplication()
-                self.window?.rootViewController = viewController
+                if user != nil {
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let viewController = storyboard.instantiateInitialViewController()
+                    self.window?.rootViewController = viewController
                 }
                 
             }
