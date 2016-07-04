@@ -16,17 +16,18 @@ class BoardViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         restartGame()
         newGameOutlet.hidden = true
+        updateUI()
     }
     
     @IBAction func LogoutPushed(sender: AnyObject) {
         
-        UserController.sharedInstance.currentUser = nil
-        
-        let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
-        let viewController = storyboard.instantiateInitialViewController()
-        let application = UIApplication.sharedApplication()
-        let window = application.keyWindow
-        window?.rootViewController = viewController
+        UserController.sharedInstance.logout(onCompletion: { message in
+            let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+            let viewController = storyboard.instantiateInitialViewController()
+            let application = UIApplication.sharedApplication()
+            let window = application.keyWindow
+            window?.rootViewController = viewController
+        })
     
     }
     
@@ -39,9 +40,10 @@ class BoardViewController: UIViewController {
         let stateOfGame = OXGameController.sharedInstance.getCurrentGame().state()
         
         if stateOfGame == .InProgress {
-            return
+            return // quits function
         }
-        
+    
+        // Game is over, disallows button use
         for view in boardView.subviews {
             if let button = view as? UIButton {
                 button.userInteractionEnabled = false
@@ -81,6 +83,20 @@ class BoardViewController: UIViewController {
     @IBAction func newGameButtonPressed(sender: UIButton) {
         restartGame()
         self.newGameOutlet.hidden = true
+    }
+    
+    
+    // Assumes that other player has played move--updates boardView with all moves from both sides
+    func updateUI() {
+        let game = OXGameController.sharedInstance.getCurrentGame()
+        let board = game.board
+        
+        for subview in boardView.subviews {
+            if let button = subview as? UIButton {
+                button.setTitle(board[button.tag].rawValue, forState: .Normal)
+            }
+        }
+        
     }
 
 }

@@ -25,32 +25,15 @@ class OXGame {
     
     var startingTurn: CellType = CellType.X
     
-    private var board = [CellType](count: 9, repeatedValue: CellType.Empty)
+    public var board = [CellType](count: 9, repeatedValue: CellType.Empty)
     
-    private var startType = CellType.X
+    //private var startType = CellType.X
     
     var turnCounter: Int = 0
     
     var ID: Int!
     
     var host: String!
-    
-    /* init()  {
-        let simulatedBoardStringFromNetwork = "o________" //update this string to different values to test your model serialisation
-        self.board = deserialiseBoard(simulatedBoardStringFromNetwork) //your OXGame board model should get set here
-        if(simulatedBoardStringFromNetwork == serialiseBoard())    {
-            print("start\n------------------------------------")
-            print("congratulations, you successfully deserialised your board and serialized it again correctly. You can send your data model over the internet with this code. 1 step closer to network OX ;)")
-            
-            print("done\n------------------------------------")
-        }   else    {
-            print("start\n------------------------------------")
-            print ("your board deserialisation and serialization was not correct :( carry on coding on those functions")
-            
-            print("done\n------------------------------------")
-        }
-        
-    } */
     
     func turnCount() -> Int {
         return turnCounter

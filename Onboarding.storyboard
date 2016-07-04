@@ -152,10 +152,10 @@
             </objects>
             <point key="canvasLocation" x="893" y="-79"/>
         </scene>
-        <!--Logon-->
+        <!--Login-->
         <scene sceneID="j8G-r7-gt2">
             <objects>
-                <viewController id="zhn-eI-Tvo" userLabel="Logon" customClass="LoginViewController" customModule="o_X" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="zhn-eI-Tvo" userLabel="Login" customClass="LoginViewController" customModule="o_X" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Blx-uA-EjQ"/>
                         <viewControllerLayoutGuide type="bottom" id="aSE-HR-eHZ"/>

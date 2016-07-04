@@ -16,11 +16,11 @@ class LoginViewController: UIViewController{
     @IBOutlet weak var password_Field: UITextField!
 
     @IBAction func LogonPushed(sender: AnyObject) {
-        UserController.sharedInstance.login(email:email_Field.text!, password: password_Field.text!) { (user: User?, test: String?) -> Void in
+        UserController.sharedInstance.login(email:email_Field.text!, password: password_Field.text!) { (user: User?, message: String?) -> Void in
             
             if user == nil {
                 
-                let alert = UIAlertController (title: "Error: that user/password combination does not exist", message: "", preferredStyle: .Alert)
+                let alert = UIAlertController(title: "Error", message: message, preferredStyle: .Alert)
                 let dismissAction = UIAlertAction(title: "Dismiss", style: .Default, handler: { (action) in
                     
                 })

@@ -12,7 +12,7 @@ class OXGameController {
     
     static let sharedInstance = OXGameController()
     
-    private init() {}
+    //private init() {}
     
     private var currentGame = OXGame()
     

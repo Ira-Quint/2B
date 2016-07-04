@@ -18,13 +18,13 @@ class UserController {
     
     private var users = [User]()
     
-    var currentUser: User?
+    private(set) var currentUser: User?
     
     func register(email email: String, password: String, onCompletion: (User?, String?) -> Void) {
         
         for user in users {
             if user.email == email {
-                onCompletion(nil, "Error: email is already being used")
+                onCompletion(nil, "Email is already being used")
                 return
             }
         }
@@ -44,7 +44,7 @@ class UserController {
             onCompletion(currentUser, nil)
         }
         else {
-            onCompletion(nil, "Error: password needs to be more than 6 characters")
+            onCompletion(nil, "Password needs to be more than 6 characters")
         }
     }
     func login(email email: String, password: String, onCompletion: (User?, String?) -> Void) {
@@ -64,7 +64,7 @@ class UserController {
             
         }
         
-        onCompletion(nil, "Error, your username or password is incorrect")
+        onCompletion(nil, "Your username or password is incorrect")
 
     }
     
@@ -73,6 +73,8 @@ class UserController {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.removeObjectForKey("CurrentUserEmail")
         defaults.removeObjectForKey("CurrentUserPassword")
+        defaults.synchronize()
+        onCompletion(nil)
     }
 }
 

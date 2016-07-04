@@ -16,9 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let defaults = NSUserDefaults.standardUserDefaults()
         
-        if let persistedObject1 = defaults.stringForKey("CurrentUserEmail"), persistedObject2 = defaults.stringForKey("CurrentUserPassword") {
+        if let email = defaults.stringForKey("CurrentUserEmail"), password = defaults.stringForKey("CurrentUserPassword") {
             
-            UserController.sharedInstance.register(email: persistedObject1, password: persistedObject2) { user, text in
+            UserController.sharedInstance.register(email: email, password: password) { user, text in
                 if user != nil {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let viewController = storyboard.instantiateInitialViewController()
